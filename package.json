@@ -1,7 +1,7 @@
 {
   "name": "reqres-crud-project",
   "version": "1.0.0",
-  "description": "Simple CRUD project using Fetch API and ReqRes",
+  "description": "Projeto simples usando Fetch API and ReqRes",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

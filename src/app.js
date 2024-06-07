@@ -1,5 +1,5 @@
 const apiEndpoint = 'https://reqres.in/api/users';
-const users = [];
+let users = [];
 
 // Fetch API wrapper
 const fetchApi = (url, options = {}) => fetch(url, options).then(res => res.json());
@@ -11,7 +11,8 @@ const addUser = (name, job) => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ name, job }),
   }).then(data => {
-    users.push({ id: data.id, name: data.name, job: data.job });
+    const newUser = { id: data.id, name, job };
+    users.push(newUser);
     displayUsers();
   });
 };
@@ -48,8 +49,7 @@ const deleteUser = id => {
   return fetchApi(`${apiEndpoint}/${id}`, {
     method: 'DELETE',
   }).then(() => {
-    const userIndex = users.findIndex(user => user.id === id);
-    users.splice(userIndex, 1);
+    users = users.filter(user => user.id !== id);
     displayUsers();
   });
 };
@@ -63,4 +63,10 @@ document.getElementById('addUserBtn').addEventListener('click', () => {
     document.getElementById('userName').value = '';
     document.getElementById('userJob').value = '';
   }
+});
+
+// Fetch existing users (optional step to fetch initial data)
+fetchApi(apiEndpoint).then(data => {
+  users = data.data.map(user => ({ id: user.id, name: user.first_name, job: user.last_name }));
+  displayUsers();
 });
