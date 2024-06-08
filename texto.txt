@@ -1,0 +1,13 @@
+Executando o programa diretamente o BROWSER:
+
+1-	Copiar o código do render: https://projetoisw008-si.onrender.com
+2-	Colar na barra de endereço do browser e executar
+
+Executando o projeto diretamente da plataforma do VSCode:
+
+1-	No VSCode abra a Pasta do Projeto (vá para `File > Open Folder` e selecione a pasta do projeto);
+2-	Abra o terminal integrado, você pode fazer isso clicando em `Terminal > New Terminal` no menu superior;
+3-	No terminal integrado, execute o comando para instalar as dependências do projeto digitando (npm install);
+4-	Após Inicie o Servidor executando o comando (npm start) para iniciar o servidor;
+5-	Abra um navegador da web e vá para o endereço (http://localhost:3000);
+6-	Você deverá ver a interface do CRUD funcionando, e poderá interagir com ela para adicionar, atualizar e excluir usuários;
